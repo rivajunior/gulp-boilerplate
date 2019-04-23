@@ -5,7 +5,7 @@ import size from 'gulp-size'
 import del from 'del'
 
 import { scripts, serviceWorker, lintScripts } from './scripts'
-import { docs, buildSassdoc, buildJsdoc } from './docs'
+import { docs, buildJsdoc } from './docs'
 import { styles, lintStyles } from './styles'
 import { images } from './images'
 import revision from './revision'
@@ -84,7 +84,6 @@ export {
   markup,
   styles,
   lintStyles,
-  buildSassdoc,
   scripts,
   buildJsdoc,
   lintScripts,

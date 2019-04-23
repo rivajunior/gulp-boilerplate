@@ -37,8 +37,7 @@ para uma melhor manutenabilidade de códigos de estilo;
 * Minificação de builds JavaScript e CSS para produção;
 [[Terser](https://github.com/terser-js/terser), [Nano](https://cssnano.co/)]
 
-* Documentações geradas automáticamente; [[JSDoc](http://usejsdoc.org),
-[SASSDOC](http://sassdoc.com/)]
+* Documentações geradas automáticamente; [[JSDoc](http://usejsdoc.org)]
 
 * Configurações básica para
 [PWA](https://developers.google.com/web/progressive-web-apps/);
@@ -130,14 +129,13 @@ por um navegador;*¹
 * `gulpfile.babel.js/` - Contém todas as configurações do gulp, suas tasks e
 funções.
 
-* `docs/` - Contém a documentação JSDoc e SASSDOC;*³
+* `docs/` - Contém a documentação JSDoc;*³
 
 1 - Gerado após a execução do comando `yarn start` ou `yarn build` .
 
 2 - Gerado após instalar as dependências.
 
-3 - Gerado após executar qualquer uma das seguinte gulp tasks `docs`,
-`buildSassdoc` ou `buildJsdoc`.
+3 - Gerado após executar qualquer uma das seguinte gulp tasks `docs` ou `buildJsdoc`.
 
 ## [Git Hooks](https://git-scm.com/book/pt-br/v1/Customizando-o-Git-Hooks-do-Git)
 
