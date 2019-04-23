@@ -1,6 +1,5 @@
 import fs from 'fs'
 
-const isProduction = () => process.env.NODE_ENV === 'production'
 const company = {
   name: '',
   slogan: ''
@@ -11,8 +10,9 @@ const product = {
 }
 
 export default {
-  publicURL: isProduction() ? 'https://example.com' : '',
-  isProduction,
+  publicURL: function() {
+    return this.ctx.config.isProduction() ? 'https://example.com' : ''
+  },
   company: {
     ...company,
     url: 'https://',
@@ -52,13 +52,13 @@ export default {
   asset: function(fileName) {
     const ctx = this.ctx
 
-    if (!fs.existsSync(fileName)) {
+    if (!fs.existsSync(`${ctx.config.paths.base.dest}/${fileName}`)) {
       console.error(`Arquivo ${fileName} não escontrado.`)
 
       return ''
     }
 
-    if (isProduction()) {
+    if (ctx.config.isProduction()) {
       const fileNameRevisioned = ctx[fileName]
 
       if (!fileNameRevisioned) {
@@ -69,7 +69,9 @@ export default {
         return ''
       }
 
-      return `${ctx.isProduction() ? ctx.publicURL : ''}${fileNameRevisioned}`
+      return `${
+        ctx.config.isProduction() ? ctx.publicURL : ''
+      }${fileNameRevisioned}`
     }
 
     return fileName

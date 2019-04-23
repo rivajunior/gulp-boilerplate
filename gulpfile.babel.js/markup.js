@@ -26,6 +26,13 @@ const _getPageData = data(file => {
       .default
   }
 
+  pageData = {
+    config: {
+      ...config
+    },
+    ...pageData
+  }
+
   if (fs.existsSync(revManifest)) {
     return {
       ...pageData,
