@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+  <div class="container">
+    <a
+      href="{{ company.url }}"
+      target="_blank"
+      rel="noopener"
+      class="navbar-brand"
+    >
+      <img
+        src="{{ company.logo.light.x1 }}"
+        srcset="{{ company.logo.light.x2 }} 2x"
+        class="img-fluid"
+        alt="{{ company.logo.alt }}"
+        title="{{ company.logo.alt }}"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-supported-content"
+      aria-controls="navbar-supported-content"
+      aria-expanded="false"
+      aria-label="Mostrar/Esconder Telefones"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-supported-content"></div>
+  </div>
+</nav>
