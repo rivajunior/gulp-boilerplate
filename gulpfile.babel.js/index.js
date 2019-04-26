@@ -61,6 +61,7 @@ if (config.isProduction()) {
 function serve(done) {
   server.init({
     watch: true,
+    open: true,
     // Customize the Browsersync console logging prefix
     logPrefix: config.packageName,
     // Run as an https by uncommenting 'https: true'
