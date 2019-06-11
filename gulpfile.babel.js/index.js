@@ -5,7 +5,6 @@ import size from 'gulp-size'
 import del from 'del'
 
 import { scripts, serviceWorker, lintScripts } from './scripts'
-import { docs, buildJsdoc } from './docs'
 import { styles, lintStyles } from './styles'
 import { images } from './images'
 import revision from './revision'
@@ -81,12 +80,10 @@ const dev = series(build, serve, watchFiles)
 export {
   build as default,
   build,
-  docs,
   markup,
   styles,
   lintStyles,
   scripts,
-  buildJsdoc,
   lintScripts,
   revision,
   images,
