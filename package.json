@@ -12,54 +12,54 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
-    "autoprefixer": "^9.6.0",
-    "babel-eslint": "^10.0.2",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "autoprefixer": "^9.7.0",
+    "babel-eslint": "^10.0.3",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
-    "browserify": "^16.2.3",
+    "browserify": "^16.5.0",
     "bs-html-injector": "^3.0.3",
-    "cross-env": "^5.2.0",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
-    "del": "^4.1.1",
+    "del": "^5.1.0",
     "envify": "^4.1.0",
-    "eslint": "^6.0.0",
-    "eslint-config-prettier": "^5.0.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^0.9.1",
-    "gulp-eslint": "^5.0.0",
+    "gulp-eslint": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^6.0.0",
-    "gulp-nunjucks": "^5.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-nunjucks": "^5.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-rev": "^9.0.0",
     "gulp-rev-delete-original": "^0.2.3",
-    "gulp-rev-rewrite": "^1.1.4",
+    "gulp-rev-rewrite": "^2.0.0",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^1.2.0",
     "gulp-webp": "^4.0.1",
-    "husky": "^2.5.0",
+    "husky": "^3.0.9",
     "imagemin-mozjpeg": "^8.0.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.4.2",
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.0.0",
     "prettier": "^1.18.2",
-    "stylelint": "^10.1.0",
-    "stylelint-config-twbs-bootstrap": "^0.3.1",
+    "stylelint": "^11.1.1",
+    "stylelint-config-twbs-bootstrap": "^0.8.0",
     "through2": "^3.0.1",
     "tinyify": "^2.5.1",
     "vinyl-buffer": "^1.0.1",
@@ -68,9 +68,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "core-js": "3.1.4",
+    "core-js": "3.3.5",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.16.0"
   },
   "scripts": {
     "start": "gulp dev",
@@ -110,19 +110,13 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "src/scripts/**/*.js": [
-        "eslint --fix",
-        "git add"
-      ],
-      "*.scss": [
-        "stylelint --fix",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "**/dist/",
-      "**/docs/"
+    "src/scripts/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
     ]
   },
   "engines": {
