@@ -7,32 +7,32 @@ const isProduction = () => {
   )
 }
 
-let paths = {
+const paths = {
   base: {
     src: 'src',
-    dest: 'dist'
+    dest: 'dist',
   },
   scripts: {
     src: 'src/scripts/index.js',
     dest: 'dist/js',
-    all: 'src/scripts/**/*.{js, mjs}'
+    all: 'src/scripts/**/*.{js, mjs}',
   },
   styles: {
     // For best performance, don't add Sass partials to `gulp.src`
     src: 'src/styles/app.scss',
     dest: 'dist/css/',
-    all: 'src/styles/*.scss'
+    all: 'src/styles/*.scss',
   },
   images: {
     src: 'src/assets/images/**',
-    dest: 'src/assets/images/'
+    dest: 'src/assets/images/',
   },
   markup: {
     src: 'src/markup/*.html',
     dest: 'dist/',
-    all: 'src/markup/**/*.html'
+    all: 'src/markup/**/*.html',
   },
-  copy: ['src/assets/**/*', 'src/styles/*.{jpg,jpeg,png,gif,svg,webp}']
+  copy: ['src/assets/**/*', 'src/styles/*.{jpg,jpeg,png,gif,svg,webp}'],
 }
 
 export default {
@@ -45,7 +45,7 @@ export default {
    * @returns {String|Boolean} `true` (inline) se o ambiente for diferente de
    * `'production'` e `'./'` (external) para o ambiente de produção.
    */
-  sourcemapsOutputStyle: function() {
+  sourcemapsOutputStyle: () => {
     const external = './'
     const inline = true
 
@@ -62,7 +62,7 @@ export default {
       /^modal-backdrop$/,
       /^modal-open$/,
       /^show$/,
-      /^collapsing$/
+      /^collapsing$/,
     ],
     whitelistPatternsChildren: [
       /tooltip/,
@@ -70,9 +70,9 @@ export default {
       /was-validated/,
       /^data-aos/,
       /^aos-/,
-      /^swiper-/
-    ]
+      /^swiper-/,
+    ],
   },
   packageName: pkg.name,
-  paths
+  paths,
 }

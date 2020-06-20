@@ -7,7 +7,7 @@ import rev from 'gulp-rev'
 
 import config from './config'
 
-const isNotIndex = file => {
+const isNotIndex = (file) => {
   file = path.parse(file.path)
 
   if (

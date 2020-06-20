@@ -2,15 +2,15 @@ import fs from 'fs'
 
 const company = {
   name: '',
-  slogan: ''
+  slogan: '',
 }
 const product = {
   name: '',
-  slogan: ''
+  slogan: '',
 }
 
 export default {
-  publicURL: function() {
+  publicURL() {
     return this.ctx.config.isProduction() ? 'https://example.com' : ''
   },
   company: {
@@ -21,25 +21,25 @@ export default {
       link: 'https://www.google.com/maps?cid=',
       image: {
         x1: 'images/',
-        x2: 'images/'
-      }
+        x2: 'images/',
+      },
     },
     logo: {
       alt: `${company.name} · ${company.slogan}`,
       light: {
         x1: 'images/',
-        x2: 'images/'
+        x2: 'images/',
       },
       dark: {
         x1: 'images/',
-        x2: 'images/'
-      }
-    }
+        x2: 'images/',
+      },
+    },
   },
   product: { ...product },
   og: {
     siteName: company.name,
-    locale: 'pt-BR'
+    locale: 'pt-BR',
   },
   maskIcon: '#',
   tileColor: '#',
@@ -49,7 +49,7 @@ export default {
   author: 'Riva Junior',
   gtmID: 'GTM-',
   currentYear: new Date().getFullYear(),
-  asset: function(fileName) {
+  asset(fileName) {
     const ctx = this.ctx
 
     if (!fs.existsSync(`${ctx.config.paths.base.dest}/${fileName}`)) {
@@ -75,5 +75,5 @@ export default {
     }
 
     return fileName
-  }
+  },
 }

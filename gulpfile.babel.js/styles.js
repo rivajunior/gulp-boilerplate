@@ -22,7 +22,7 @@ import config from './config'
 const lintStyles = () => {
   return src(config.paths.styles.src, {
     debug: config.debug,
-    read: false
+    read: false,
   }).pipe(postcss([stylelint(), reporter()], { syntax: postScss }))
 }
 
@@ -41,7 +41,7 @@ const buildStyles = () => {
   return src(config.paths.styles.src, { sourcemaps: true, debug: config.debug })
     .pipe(rename('style'))
     .pipe(
-      sass({ includePaths: ['node_modules/'] }).on('error', function(err) {
+      sass({ includePaths: ['node_modules/'] }).on('error', function (err) {
         console.error(err.message)
         browserSync.notify(err.message, 3000) // Display error in the browser
         this.emit('end') // Prevent gulp from catching the error and exiting the watch process
@@ -52,7 +52,7 @@ const buildStyles = () => {
     .pipe(size({ title: 'styles' }))
     .pipe(
       dest(config.paths.styles.dest, {
-        sourcemaps: config.sourcemapsOutputStyle()
+        sourcemaps: config.sourcemapsOutputStyle(),
       })
     )
     .pipe(gulpIf(browserSync.active, browserSync.stream()))

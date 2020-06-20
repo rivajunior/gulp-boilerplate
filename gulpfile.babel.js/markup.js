@@ -12,10 +12,10 @@ import { requireNoCache } from './utils'
 import config from './config'
 
 const _data = () => {
-  const _getPageData = file => {
+  const _getPageData = (file) => {
     let pageData
-    let revManifest = `../${config.paths.base.dest}/rev-manifest`
-    let dataFile = `${config.paths.base.src}/data/${
+    const revManifest = `../${config.paths.base.dest}/rev-manifest`
+    const dataFile = `${config.paths.base.src}/data/${
       path.parse(file.path).name
     }.js`
 
@@ -28,13 +28,13 @@ const _data = () => {
 
     pageData = {
       config: { ...config },
-      ...pageData
+      ...pageData,
     }
 
     if (fs.existsSync(revManifest)) {
       return {
         ...pageData,
-        ...requireNoCache(revManifest)
+        ...requireNoCache(revManifest),
       }
     }
 
@@ -48,7 +48,7 @@ const _data = () => {
 }
 
 const _makePageRoute = () => {
-  return rename(file => {
+  return rename((file) => {
     if (file.basename !== 'index') {
       file.dirname = file.basename
       file.basename = 'index'
@@ -75,7 +75,7 @@ function markup() {
           collapseBooleanAttributes: true,
           removeAttributeQuotes: true,
           removeRedundantAttributes: true,
-          removeEmptyAttributes: true
+          removeEmptyAttributes: true,
         })
       )
     )

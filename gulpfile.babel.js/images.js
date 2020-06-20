@@ -15,7 +15,7 @@ export const imagesToWebp = () => {
   let webpConfig = {
     quality: 80,
     preset: 'photo',
-    method: 6
+    method: 6,
   }
 
   if (process.env.LOSSLESS) {
@@ -36,12 +36,12 @@ const imagesmin = () => {
           // imagemin.jpegtran({ progressive: true }),
           imagemin.optipng({ optimizationLevel: 5 }),
           imagemin.svgo({
-            plugins: [{ removeViewBox: true }, { cleanupIDs: true }]
+            plugins: [{ removeViewBox: true }, { cleanupIDs: true }],
           }),
-          imageminMozjpeg({ quality: 85 })
+          imageminMozjpeg({ quality: 85 }),
         ],
         {
-          verbose: config.debug
+          verbose: config.debug,
         }
       )
     )

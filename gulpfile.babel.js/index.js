@@ -16,7 +16,7 @@ let build
 const server = browserSync.create(config.packageName)
 
 browserSync.use(htmlInjector, {
-  files: `${config.paths.markup.dest}**/*.html`
+  files: `${config.paths.markup.dest}**/*.html`,
 })
 
 /**
@@ -31,7 +31,7 @@ export const copy = () => {
 // Clean output directory
 export const clean = () => {
   return del([config.paths.base.dest, `!${config.paths.base.dest}/.git`], {
-    dot: true
+    dot: true,
   })
 }
 
@@ -69,7 +69,7 @@ function serve(done) {
     // https: true,
     server: `./${config.paths.base.dest}`,
     port: config.port,
-    logLevel: config.debug ? 'debug' : 'info'
+    logLevel: config.debug ? 'debug' : 'info',
   })
 
   done()
@@ -88,5 +88,5 @@ export {
   revision,
   images,
   dev,
-  watchFiles
+  watchFiles,
 }

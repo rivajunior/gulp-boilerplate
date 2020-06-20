@@ -19,7 +19,7 @@ const lintScripts = () => {
   return src([config.paths.scripts.all])
     .pipe(eslint({ fix: true }))
     .pipe(
-      eslint.results(results => {
+      eslint.results((results) => {
         // Called once for all ESLint results.
         console.info(CYAN, 'Total Results: ', results.length)
         console.info(CYAN, 'Total Warnings: ', results.warningCount)
@@ -38,7 +38,7 @@ const lintScripts = () => {
 const buildScripts = () => {
   // Input file.
   const bundler = browserify(config.paths.scripts.src, {
-    debug: true // ativa sourcemaps
+    debug: true, // ativa sourcemaps
   })
 
   bundler.transform('babelify', {
@@ -52,10 +52,10 @@ const buildScripts = () => {
           useBuiltIns: 'usage',
           corejs: 3,
           forceAllTransforms: true,
-          debug: config.debug
-        }
-      ]
-    ]
+          debug: config.debug,
+        },
+      ],
+    ],
   })
 
   if (config.isProduction()) {
@@ -76,14 +76,14 @@ const buildScripts = () => {
           toplevel: true,
           compress: {
             drop_console: true,
-            unsafe: true
-          }
+            unsafe: true,
+          },
         })
       )
     )
     .pipe(
       dest(config.paths.scripts.dest, {
-        sourcemaps: config.sourcemapsOutputStyle()
+        sourcemaps: config.sourcemapsOutputStyle(),
       })
     )
     .pipe(size({ title: 'scripts' }))
@@ -107,14 +107,14 @@ const serviceWorker = () => {
   return generateSW({
     globDirectory: config.paths.base.dest,
     globPatterns: ['**/*.{html,js,css,jpg,jpeg,png,gif,svg,webp}'],
-    swDest: path.join(config.paths.base.dest, 'sw.js')
+    swDest: path.join(config.paths.base.dest, 'sw.js'),
   })
     .then(({ count, size, warnings }) => {
       // log de warnings e detalhes.
       warnings.forEach(console.warn)
       console.log(`${count} files will be precached, totaling ${size} bytes.`)
     })
-    .catch(error => {
+    .catch((error) => {
       console.warn('Service worker generation failed:', error)
     })
 }
