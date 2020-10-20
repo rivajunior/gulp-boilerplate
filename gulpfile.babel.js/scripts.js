@@ -3,7 +3,6 @@ import { generateSW } from 'workbox-build'
 import sourcemaps from 'gulp-sourcemaps'
 import source from 'vinyl-source-stream'
 import browserify from 'browserify'
-// import envify from 'envify/custom'
 import buffer from 'vinyl-buffer'
 import eslint from 'gulp-eslint'
 import terser from 'gulp-terser'
@@ -42,9 +41,8 @@ const buildScripts = () => {
   })
 
   bundler.transform('babelify', {
-    global: true,
+    sourceType: 'module',
     sourceMaps: true,
-    ignore: [/\/node_modules\/(?!dom7|ssr-window|swiper\/)/],
     presets: [
       [
         '@babel/preset-env',
